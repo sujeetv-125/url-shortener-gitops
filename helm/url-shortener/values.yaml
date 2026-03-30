@@ -1,0 +1,46 @@
+namespace: url-shortener
+
+api:
+  image:
+    repository: sujeetv/url-shortener-api
+    tag: v1.0.0
+    pullPolicy: Always
+  replicas: 2
+  port: 8000
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "50m"
+    limits:
+      memory: "128Mi"
+      cpu: "200m"
+
+frontend:
+  image:
+    repository: sujeetv/url-shortener-frontend
+    tag: v1.0.0
+    pullPolicy: Always
+  replicas: 2
+  port: 80
+  resources:
+    requests:
+      memory: "32Mi"
+      cpu: "25m"
+    limits:
+      memory: "64Mi"
+      cpu: "100m"
+
+redis:
+  image: redis:7-alpine
+  port: 6379
+  storage: 1Gi
+
+ingress:
+  host: url-shortener.local
+
+autoscaling:
+  enabled: true
+  api:
+    minReplicas: 2
+    maxReplicas: 8
+    targetCPU: 70
