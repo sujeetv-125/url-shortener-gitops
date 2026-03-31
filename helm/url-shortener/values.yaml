@@ -5,7 +5,7 @@ api:
     repository: sujeetv/url-shortener-api
     tag: v1.0.0
     pullPolicy: Always
-  replicas: 2
+  replicas: 4
   port: 8000
   resources:
     requests:
