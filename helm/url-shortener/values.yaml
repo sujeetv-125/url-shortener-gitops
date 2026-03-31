@@ -3,7 +3,7 @@ namespace: url-shortener
 api:
   image:
     repository: sujeetv/url-shortener-api
-    tag: v1.0.0
+    tag: latest
     pullPolicy: Always
   replicas: 4
   port: 8000
